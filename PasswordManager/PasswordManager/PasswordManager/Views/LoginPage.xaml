@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PasswordManager.ViewModels"
+             xmlns:m="clr-namespace:PasswordManager.Models"
+             x:Class="PasswordManager.Views.LoginPage"
+             BackgroundColor="{StaticResource Background}">
+
+    <ContentPage.BindingContext>
+        <vm:LoginPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Enter Authentification"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand" 
+                   Text="{Binding Text}"
+                   ReturnCommand="{Binding ReturnCommand}"
+                   IsPassword="True"
+                   TextColor="{StaticResource Primary}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PasswordManager.ViewModels"
+             xmlns:m="clr-namespace:PasswordManager.Models"
+             x:Class="PasswordManager.Views.HomePage"
+             BackgroundColor="{StaticResource Background}"
+             x:Name="home"
+             >
+
+    <ContentPage.BindingContext>
+        <vm:HomePageViewModel/>
+    </ContentPage.BindingContext>
+    
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid ColumnDefinitions="9*,2*">
+                <Button VerticalOptions="CenterAndExpand"
+                        Text="{StaticResource IconIgloo}"
+                        FontFamily="FAS"
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource Primary}"
+                        FontSize="Medium"
+                        Command="{Binding AddCommand}"
+                        Grid.Column="1"/>
+                <SearchBar VerticalOptions="CenterAndExpand"
+                       TextColor="{StaticResource Primary}"
+                       PlaceholderColor="{StaticResource Primary}"
+                       CancelButtonColor="{StaticResource Primary}"
+                       Text="{Binding SearchTerm}"
+                       TextChanged="HandleSearch"
+                           Grid.Column="0"/>
+            </Grid>
+            <ListView ItemsSource="{Binding CredentialsList}" x:Name="MyListView" IsPullToRefreshEnabled="False"
+                      HasUnevenRows="True"
+                      ItemSelected="ItemDetails">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="m:Credentials">
+                        <ViewCell>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Edit"
+                                               BackgroundColor="#1b663e"
+                                               Command="{Binding Source={x:Reference home}, Path=BindingContext.EditCommand}"
+                                                CommandParameter="{Binding Id}" 
+                                               />
+                                    <SwipeItem  Text="Delete"
+                                                BackgroundColor="{StaticResource LayerBackground}"
+                                                Command="{Binding Source={x:Reference home}, Path=BindingContext.RemoveCommand}"
+                                                CommandParameter="{Binding Id}" />
+                                    </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Frame HeightRequest="50"
+                                   MinimumHeightRequest="50"
+                                   BackgroundColor="{StaticResource Foreground}" Margin="0, 1">
+                                <StackLayout>
+                                    <Label Text="{Binding Account}" TextColor ="{StaticResource Secondary}" FontSize="Medium"/>
+                                        <Label Text="{Binding Username}" TextColor ="{StaticResource Primary}" FontSize="Small"/>
+                                </StackLayout>
+                            </Frame>
+                        </SwipeView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

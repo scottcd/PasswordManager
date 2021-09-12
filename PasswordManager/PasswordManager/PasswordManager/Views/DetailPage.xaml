@@ -1,0 +1,42 @@
+﻿<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"  
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"   
+                xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                x:Class="PasswordManager.Views.DetailPage">
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation   
+                      PositionIn="Center"  
+                      PositionOut="Center"  
+                      ScaleIn="1.2"  
+                      ScaleOut="0.8"  
+                      DurationIn="400"  
+                      DurationOut="300"  
+                      EasingIn="SinOut"  
+                      EasingOut="SinIn"  
+                        HasBackgroundAnimation="False"/>
+    </pages:PopupPage.Animation>
+
+    
+    <StackLayout  Padding="20,0" VerticalOptions="CenterAndExpand">
+        <Frame HeightRequest="300"
+                   BackgroundColor="{StaticResource Background}"
+                   BorderColor="{StaticResource Primary}">
+            <StackLayout>
+                <Label Text="Details Page"
+                    HorizontalOptions="CenterAndExpand"
+                    TextColor="{StaticResource Primary}"
+                       FontSize="Large"/>
+                <Label Text="Account" FontSize="Subtitle" TextColor="{StaticResource Primary}"/>
+                <Label Text="{Binding Account}" TextColor="{StaticResource Secondary}"/>
+                <Label Text="Email" FontSize="Subtitle" TextColor="{StaticResource Primary}"/>
+                <Label Text="{Binding Email}" TextColor="{StaticResource Secondary}"/>
+                <Label Text="Username" FontSize="Subtitle" TextColor="{StaticResource Primary}"/>
+                <Label Text="{Binding Username}" TextColor="{StaticResource Secondary}"/>
+                <Label Text="Password" FontSize="Subtitle" TextColor="{StaticResource Primary}"/>
+                <Label Text="{Binding Password}" TextColor="{StaticResource Secondary}"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</pages:PopupPage>

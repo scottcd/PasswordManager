@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"  
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"   
+                xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                xmlns:vm="clr-namespace:PasswordManager.ViewModels"
+                xmlns:m="clr-namespace:PasswordManager.Models"
+                x:Class="PasswordManager.Views.EntryPage"
+                BackgroundColor="Transparent"
+                >
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation   
+                      PositionIn="Center"  
+                      PositionOut="Center"  
+                      ScaleIn="1.2"  
+                      ScaleOut="0.8"  
+                      DurationIn="400"  
+                      DurationOut="300"  
+                      EasingIn="SinOut"  
+                      EasingOut="SinIn"  
+                        HasBackgroundAnimation="False"/>
+    </pages:PopupPage.Animation>
+
+    <pages:PopupPage.BindingContext>
+        <vm:EntryPageViewModel/>
+    </pages:PopupPage.BindingContext>
+    
+    <StackLayout  Padding="20,0" VerticalOptions="CenterAndExpand">
+        <Frame HeightRequest="250"
+                   BackgroundColor="{StaticResource Background}"
+                   BorderColor="{StaticResource Primary}">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label  Text="Add a New Password"
+                    HorizontalOptions="CenterAndExpand"
+                    TextColor="{StaticResource Primary}"
+                    FontSize="Large"
+                    Grid.Row="0"
+                    Grid.Column="0"/>
+                <Button Text="{StaticResource IconEdit}"
+                    FontFamily="FAS"
+                    TextColor="{StaticResource Primary}"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    Command="{Binding EditCommand}"/>
+                <Entry Placeholder="{Binding PlaceHolderAccount}" 
+                   PlaceholderColor="{StaticResource Primary}" 
+                   TextColor="{StaticResource Secondary}"
+                   Text="{Binding TextAccount}"
+                       Grid.Row="1"
+                   Grid.ColumnSpan="2"/>
+                <Entry Placeholder="{Binding PlaceHolderEmail}"
+                   PlaceholderColor="{StaticResource Primary}" 
+                   TextColor="{StaticResource Secondary}"
+                   Text="{Binding TextEmail}"
+                       Grid.Row="2"
+                   Grid.ColumnSpan="2"/>
+                <Entry Placeholder="{Binding PlaceHolderUsername}" 
+                   PlaceholderColor="{StaticResource Primary}" 
+                   TextColor="{StaticResource Secondary}"
+                   Text="{Binding TextUsername}"
+                       Grid.Row="3"
+                   Grid.ColumnSpan="2"/>
+                <Entry Placeholder="{Binding PlaceHolderPassword}"
+                   PlaceholderColor="{StaticResource Primary}" 
+                   TextColor="{StaticResource Secondary}"
+                       Text="{Binding TextPassword}"
+                   Grid.Row="4"
+                   Grid.ColumnSpan="2"/>
+
+            </Grid>
+        </Frame>
+    </StackLayout>
+
+
+</pages:PopupPage>

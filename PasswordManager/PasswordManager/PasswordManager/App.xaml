@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PasswordManager.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Background">#051F20</Color>
+            <Color x:Key="LayerBackground">#0B2B26</Color>
+            <Color x:Key="Foreground">#235347</Color>
+            <Color x:Key="Primary">#8EB69B</Color>
+            <Color x:Key="Secondary">#DAF1DE</Color>
+
+            <!-- Icons -->
+            <x:String x:Key="IconDice">&#xf522;</x:String>
+            <x:String x:Key="IconIgloo">&#xf7ae;</x:String>
+            <x:String x:Key="IconCard">&#xf2bb;</x:String>
+            <x:String x:Key="IconSettings">&#xf013;</x:String>
+            <x:String x:Key="IconWizard">&#xf6e8;</x:String>
+            <x:String x:Key="IconAdd">&#xf067;</x:String>
+            <x:String x:Key="IconTrash">&#xf1f8;</x:String>
+            <x:String x:Key="IconEdit">&#xf044;</x:String>
+
+            <!-- Styles -->
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
